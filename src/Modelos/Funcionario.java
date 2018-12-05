@@ -14,15 +14,14 @@ public class Funcionario {
     Long id;
     String nome;
     String cpf;
-    String Endereco;
-    String Contato;
-    String Email;
-    String Cargonaempresa;
-    String Horassemanais;
-    String Entradasaida;
+    String contato;
+    String cidade;
+    String bairro;
+    String rua;
+    String numero;
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -45,8 +44,8 @@ public class Funcionario {
         this.cpf = cpf;
     }
 
-    public String getEndereco() {
-        return Endereco;
+    public String getContato() {
+        return this.contato;
     }
 
     public void setEndereco(String Endereco) {
@@ -54,45 +53,43 @@ public class Funcionario {
     }
 
     public String getContato() {
-        return Contato;
+        return this.contato;
     }
 
-    public void setContato(String Contato) {
-        this.Contato = Contato;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getCidade() {
+        return this.cidade;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
 
-    public String getCargonaempresa() {
-        return Cargonaempresa;
+    public String getBairro() {
+        return this.bairro;
     }
 
-    public void setCargonaempresa(String Cargonaempresa) {
-        this.Cargonaempresa = Cargonaempresa;
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
     }
 
-    public String getHorassemanais() {
-        return Horassemanais;
+    public String getRua() {
+        return this.rua;
     }
 
-    public void setHorassemanais(String Horassemanais) {
-        this.Horassemanais = Horassemanais;
+    public void setRua(String rua) {
+        this.rua = rua;
     }
 
-    public String getEntradasaida() {
-        return Entradasaida;
+    public String getNumero() {
+        return this.numero;
     }
 
-    public void setEntradasaida(String Entradasaida) {
-        this.Entradasaida = Entradasaida;
+    public void setNumero(String numero) {
+        this.numero = numero;
     }
-    
-    
    
 }
