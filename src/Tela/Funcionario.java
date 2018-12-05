@@ -5,20 +5,21 @@
  */
 package Tela;
 
-import DAO.ClientesDAO;
-import Modelos.tbl_cliente;
+
+import DAO.FuncionariosDAO;
+import Modelos.tbl_funcionario;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Henrick
  */
-public class Clientes extends javax.swing.JFrame {
+public class Funcionario extends javax.swing.JFrame {
 
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
+    public Funcionario() {
         initComponents();
     }
 
@@ -156,22 +157,22 @@ public class Clientes extends javax.swing.JFrame {
 
     private void btnCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCadastrarActionPerformed
         // TODO add your handling code here:
-         tbl_cliente tbl_cliente = new tbl_cliente ();
-        tbl_cliente.setNome(txtNome.getText());
-        tbl_cliente.setCpf(txtCpf.getText());
-        tbl_cliente.setContato(txtContato.getText());
-        tbl_cliente.setCidade(txtCidade.getText());
-        tbl_cliente.setRua(txtRua.getText());
-        tbl_cliente.setBairro(txtBairro.getText());
-        tbl_cliente.setNumero(txtNumero.getText());
+         tbl_funcionario tbl_funcionario = new tbl_funcionario ();
+        tbl_funcionario.setNome(txtNome.getText());
+        tbl_funcionario.setCpf(txtCpf.getText());
+        tbl_funcionario.setContato(txtContato.getText());
+        tbl_funcionario.setCidade(txtCidade.getText());
+        tbl_funcionario.setRua(txtRua.getText());
+        tbl_funcionario.setBairro(txtBairro.getText());
+        tbl_funcionario.setNumero(txtNumero.getText());
 
         if ((txtNome.getText().isEmpty()) || (txtCpf.getText().isEmpty()) || (txtContato.getText().isEmpty()) || (txtNumero.getText().isEmpty()) || (txtRua.getText().isEmpty()) || (txtBairro.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
 
-            ClientesDAO dao = new ClientesDAO();
-            dao.adiciona(tbl_cliente);
-            JOptionPane.showMessageDialog(null, "Cliente " + txtNome.getText() + " inserido com sucesso! ");
+            FuncionariosDAO dao = new FuncionariosDAO();
+            dao.adiciona(tbl_funcionario);
+            JOptionPane.showMessageDialog(null, "Funcionario " + txtNome.getText() + " inserido com sucesso! ");
         }
         txtNome.setText("");
         txtCpf.setText("");
@@ -200,20 +201,21 @@ public class Clientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Funcionario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Clientes().setVisible(true);
+                new Funcionario().setVisible(true);
             }
         });
     }

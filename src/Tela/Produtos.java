@@ -6,8 +6,10 @@
 package Tela;
 
 import DAO.ProdutosDAO;
-import Modelos.Produto;
+import Modelos.tbl_produto;
 import javax.swing.JOptionPane;
+
+
 
 /**
  *
@@ -31,18 +33,12 @@ public class Produtos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblcod = new javax.swing.JLabel();
-        lblproduto = new javax.swing.JLabel();
-        lblprecodevenda = new javax.swing.JLabel();
-        lblquantidade = new javax.swing.JLabel();
-        lblprecodecompra = new javax.swing.JLabel();
-        lblfornecedor = new javax.swing.JLabel();
-        txtcod = new javax.swing.JTextField();
-        txtproduto = new javax.swing.JTextField();
-        txtfornecedor = new javax.swing.JTextField();
-        txtprecodevenda = new javax.swing.JTextField();
-        txtprecodecompra = new javax.swing.JTextField();
-        txtquantidade = new javax.swing.JTextField();
+        lblPreco = new javax.swing.JLabel();
+        lblQuantidade = new javax.swing.JLabel();
+        lblNome = new javax.swing.JLabel();
+        txtPreco = new javax.swing.JTextField();
+        txtNome = new javax.swing.JTextField();
+        txtQuantidade = new javax.swing.JTextField();
         btnsair = new javax.swing.JButton();
         btnlimpar = new javax.swing.JButton();
         btncadastrar = new javax.swing.JButton();
@@ -51,47 +47,26 @@ public class Produtos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblcod.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblcod.setText("Cod");
-        getContentPane().add(lblcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 158, -1, 30));
+        lblPreco.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblPreco.setText("Preço :");
+        getContentPane().add(lblPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 150, -1, 30));
 
-        lblproduto.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblproduto.setText("Produto :");
-        getContentPane().add(lblproduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, 30));
+        lblQuantidade.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblQuantidade.setText("Quantidade :");
+        getContentPane().add(lblQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 150, -1, 30));
 
-        lblprecodevenda.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblprecodevenda.setText("Preço de Venda :");
-        getContentPane().add(lblprecodevenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, 30));
+        lblNome.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        lblNome.setText("Nome :");
+        getContentPane().add(lblNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, 30));
 
-        lblquantidade.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblquantidade.setText("Quantidade :");
-        getContentPane().add(lblquantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, 30));
+        txtPreco.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        getContentPane().add(txtPreco, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 100, 30));
 
-        lblprecodecompra.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblprecodecompra.setText("Preço de Compra : ");
-        getContentPane().add(lblprecodecompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, -1, 30));
+        txtNome.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 120, -1));
 
-        lblfornecedor.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        lblfornecedor.setText("Fornecedor :");
-        getContentPane().add(lblfornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 158, -1, 30));
-
-        txtcod.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        getContentPane().add(txtcod, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, 60, 30));
-
-        txtproduto.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        getContentPane().add(txtproduto, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 110, 30));
-
-        txtfornecedor.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        getContentPane().add(txtfornecedor, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 140, 30));
-
-        txtprecodevenda.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        getContentPane().add(txtprecodevenda, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 60, 30));
-
-        txtprecodecompra.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        getContentPane().add(txtprecodecompra, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 220, 90, -1));
-
-        txtquantidade.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
-        getContentPane().add(txtquantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, 50, -1));
+        txtQuantidade.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        getContentPane().add(txtQuantidade, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 150, 70, -1));
 
         btnsair.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btnsair.setText("Sair");
@@ -100,7 +75,7 @@ public class Produtos extends javax.swing.JFrame {
                 btnsairActionPerformed(evt);
             }
         });
-        getContentPane().add(btnsair, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 90, -1));
+        getContentPane().add(btnsair, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 90, -1));
 
         btnlimpar.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btnlimpar.setText("Limpar");
@@ -109,7 +84,7 @@ public class Produtos extends javax.swing.JFrame {
                 btnlimparActionPerformed(evt);
             }
         });
-        getContentPane().add(btnlimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 280, 90, -1));
+        getContentPane().add(btnlimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 90, -1));
 
         btncadastrar.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
         btncadastrar.setText("Cadastrar");
@@ -118,7 +93,7 @@ public class Produtos extends javax.swing.JFrame {
                 btncadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btncadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
+        getContentPane().add(btncadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 230, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 400));
@@ -133,49 +108,39 @@ public class Produtos extends javax.swing.JFrame {
 
     private void btnlimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlimparActionPerformed
         // TODO add your handling code here:
-        txtcod.setText("");
-txtproduto.setText("");
-txtfornecedor.setText("");
-txtprecodevenda.setText("");
-txtprecodecompra.setText("");
-txtquantidade.setText("");
+        
+
+txtNome.setText("");
+txtQuantidade.setText("");
+txtPreco.setText("");
+
         
     }//GEN-LAST:event_btnlimparActionPerformed
 
     private void btncadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btncadastrarActionPerformed
         // TODO add your handling code here:
         
+        tbl_produto tbl_produto = new tbl_produto ();
+        tbl_produto.setNome(txtNome.getText());
+        tbl_produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
+        tbl_produto.setPreco(Float.parseFloat(txtPreco.getText()));
+        
+        
+
+        if ((txtNome.getText().isEmpty()) || (txtPreco.getText().isEmpty()) || (txtQuantidade.getText().isEmpty())) {
+            JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
+        } else {
+
+            ProdutosDAO dao = new ProdutosDAO();
+            dao.adiciona(tbl_produto);
+            JOptionPane.showMessageDialog(null, "Produto " + txtNome.getText() + " inserido com sucesso! ");
+        }
+        txtNome.setText("");
+         txtQuantidade.setText("");
+        txtPreco.setText("");
+        
         
            
-        Produto produto = new Produto();
-produto.setCod(txtcod.getText());
-produto.setProduto(txtproduto.getText());
-produto.setFornecedor(txtfornecedor.getText());
-produto.setPrecodevenda(Float.parseFloat(txtprecodevenda.getText()));
-produto.setPrecodecompra(Float.parseFloat(txtprecodecompra.getText()));
-produto.setQuantidade(Integer.parseInt(txtquantidade.getText()));    
-        
-        
-
-
-if ((txtcod.getText().isEmpty()) || (txtproduto.getText().isEmpty()) || (txtfornecedor.getText().isEmpty()) || (txtprecodevenda.getText().isEmpty())|| (txtprecodecompra.getText().isEmpty()) || (txtquantidade.getText().isEmpty())) {
-   JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
-}
-else {
-
-    
-    ProdutosDAO dao = new ProdutosDAO();
-    dao.adiciona(produto);
-    JOptionPane.showMessageDialog(null, " produto "+txtproduto.getText()+" inserido com sucesso! ");
-}
-
-
-txtcod.setText("");
-txtproduto.setText("");
-txtfornecedor.setText("");
-txtprecodevenda.setText("");
-txtprecodecompra.setText("");
-txtquantidade.setText("");
         
         
     }//GEN-LAST:event_btncadastrarActionPerformed
@@ -220,17 +185,11 @@ txtquantidade.setText("");
     private javax.swing.JButton btnlimpar;
     private javax.swing.JButton btnsair;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblcod;
-    private javax.swing.JLabel lblfornecedor;
-    private javax.swing.JLabel lblprecodecompra;
-    private javax.swing.JLabel lblprecodevenda;
-    private javax.swing.JLabel lblproduto;
-    private javax.swing.JLabel lblquantidade;
-    private javax.swing.JTextField txtcod;
-    private javax.swing.JTextField txtfornecedor;
-    private javax.swing.JTextField txtprecodecompra;
-    private javax.swing.JTextField txtprecodevenda;
-    private javax.swing.JTextField txtproduto;
-    private javax.swing.JTextField txtquantidade;
+    private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblPreco;
+    private javax.swing.JLabel lblQuantidade;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtPreco;
+    private javax.swing.JTextField txtQuantidade;
     // End of variables declaration//GEN-END:variables
 }

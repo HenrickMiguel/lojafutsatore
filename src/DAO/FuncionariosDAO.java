@@ -6,7 +6,8 @@
 package DAO;
 
 import Factory.ConnectionFactory;
-import Modelos.Funcionario;
+import Modelos.tbl_funcionario;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -17,33 +18,31 @@ import java.sql.SQLException;
  */
 public class FuncionariosDAO {
     
-    Long id;
+  private final Connection connection;
+    
     String nome;
     String cpf;
-    String Endereco;
-    String Contato;
-    String Email;
-    String Cargonaempresa;
-    String Horassemanais;
-    String Entradasaida;
-    private final Connection connection;
+    String contato;
+    String cidade;
+    String Bairro;
+    String rua;
+    String numero;
     
     public FuncionariosDAO() {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public void adiciona(Funcionario funcionario) {
-        String sql = "INSERT INTO Funcionario (Nome,Cpf,Endereco,Contato,Email,Cargonaempresa,Horassemanais,Entradasaida) VALUES(?,?,?,?,?,?,?,?)";
+    public void adiciona(tbl_funcionario tbl_funcionario) {
+        String sql = "INSERT INTO tbl_funcionario (Nome,Cpf,Contato,Cidade,Bairro,Rua,Numero) VALUES(?,?,?,?,?,?,?)";
         try {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setString(1, funcionario.getNome());
-                stmt.setString(2, funcionario.getCpf());
-                stmt.setString(3, funcionario.getEndereco());
-                stmt.setString(4, funcionario.getContato());
-                stmt.setString(5, funcionario.getEmail());
-                stmt.setString(6, funcionario.getCargonaempresa());
-                stmt.setString(7, funcionario.getHorassemanais());
-                stmt.setString(8, funcionario.getEntradasaida());
+                stmt.setString(1, tbl_funcionario.getNome());
+                stmt.setString(2, tbl_funcionario.getCpf());
+                stmt.setString(3, tbl_funcionario.getContato());
+                stmt.setString(4, tbl_funcionario.getCidade());
+                stmt.setString(5, tbl_funcionario.getBairro());
+                stmt.setString(6, tbl_funcionario.getRua());
+                stmt.setString(7, tbl_funcionario.getNumero());
                 stmt.execute();
             }
         } catch (SQLException u) {

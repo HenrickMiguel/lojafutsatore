@@ -6,8 +6,9 @@
 package DAO;
 
 import Factory.ConnectionFactory;
-import Modelos.tbl_produto;
+import Modelos.tbl_venda;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
@@ -15,26 +16,27 @@ import java.sql.SQLException;
  *
  * @author Henrick
  */
-public class ProdutosDAO {
+public class VendasDAO {
     
-  private final Connection connection;
+    private final Connection connection;
     
-    String nome;
-    float preco;
-    int quantidade;
+  Date  data_venda; 
+   int quanti_tem;
+   float valor_total;
+   int cli_id;
     
-    public ProdutosDAO() {
+    public VendasDAO() {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public void adiciona(tbl_produto tbl_produto) {
-        String sql = "INSERT INTO tbl_produto (Nome,Quantidade,Preco) VALUES(?,?,?)";
+    public void adiciona(tbl_venda tbl_venda) {
+        String sql = "INSERT INTO tbl_venda (Data_venda,Quanti_tem,Valor_total,Cli_id) VALUES(?,?,?,?)";
         try {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setString(1, tbl_produto.getNome());
-                stmt.setInt(3, tbl_produto.getQuantidade());
-                stmt.setFloat(2, tbl_produto.getPreco());
-                
+                stmt.setDate(1, tbl_venda.getData_venda());
+                stmt.setInt(2, tbl_venda.getQuanti_tem());
+                stmt.setFloat(3, tbl_venda.getValor_total());
+                stmt.setInt(4, tbl_venda.getCli_id());
                 
                 stmt.execute();
             }
@@ -43,4 +45,5 @@ public class ProdutosDAO {
         }
 
     }
+    
 }
