@@ -11,15 +11,17 @@ package modelos;
  */
 public class Cliente {
     
-    Long id;
-    String nome;
-    String cpf;
-    String contato;
-    String cidade;
-    String Endereco;
+    private Long id;
+    private String nome;
+    private String cpf;
+    private String contato;
+    private String cidade;
+    private String bairro;
+    private String rua;
+    private Integer numero;
 
     public Long getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Long id) {
@@ -27,7 +29,7 @@ public class Cliente {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -35,7 +37,7 @@ public class Cliente {
     }
 
     public String getCpf() {
-        return cpf;
+        return this.cpf;
     }
 
     public void setCpf(String cpf) {
@@ -43,28 +45,43 @@ public class Cliente {
     }
 
     public String getContato() {
-        return Contato;
+        return this.contato;
     }
 
-    public void setContato(String Contato) {
-        this.Contato = Contato;
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 
     public String getCidade() {
-        return Cidade;
+        return this.cidade;
     }
 
-    public void setCidade(String Cidade) {
-        this.Cidade = Cidade;
-    }
-
-    public String getEndereco() {
-        return Endereco;
-    }
-
-    public void setEndereco(String Endereco) {
-        this.Endereco = Endereco;
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
     }
     
+    public String getBairro() {
+        return this.bairro;
+    }
+
+    public void setBairro(String bairro) {
+        this.bairro = bairro;
+    }
+
+    public String getRua() {
+        return this.rua;
+    }
+
+    public void setRua(String rua) {
+        this.rua = rua;
+    }
+    
+    public Integer getNumero() {
+        return this.numero;
+    }
+
+    public void setNumero(Integer numero) {
+        this.numero = numero;
+    }
     
 }

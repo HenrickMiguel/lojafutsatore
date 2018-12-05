@@ -12,12 +12,9 @@ package modelos;
 public class Produto {
     
     Long id;
-    String Cod;
-    String Produto;
-    int Quantidade;
-    float Precodevenda;
-    float Precodecompra;
-    String Fornecedor;
+    String nome;
+    String quantidade;
+    Double preco;
 
     public Long getId() {
         return id;
@@ -27,53 +24,28 @@ public class Produto {
         this.id = id;
     }
 
-    public String getCod() {
-        return Cod;
+    public String getNome() {
+        return this.nome;
     }
 
-    public void setCod(String Cod) {
-        this.Cod = Cod;
-    }
-
-    public String getProduto() {
-        return Produto;
-    }
-
-    public void setProduto(String Produto) {
-        this.Produto = Produto;
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
     public int getQuantidade() {
-        return Quantidade;
+        return this.quantidade;
     }
 
-    public void setQuantidade(int Quantidade) {
-        this.Quantidade = Quantidade;
+    public void setQuantidade(int quantidade) {
+        this.quantidade = quantidade;
     }
 
-    public float getPrecodevenda() {
-        return Precodevenda;
+    public Decimal getPreco() {
+        return this.preco;
     }
 
-    public void setPrecodevenda(float Precodevenda) {
-        this.Precodevenda = Precodevenda;
+    public void setPreco(Decimal preco) {
+        this.preco = preco;
     }
-
-    public float getPrecodecompra() {
-        return Precodecompra;
-    }
-
-    public void setPrecodecompra(float Precodecompra) {
-        this.Precodecompra = Precodecompra;
-    }
-
-    public String getFornecedor() {
-        return Fornecedor;
-    }
-
-    public void setFornecedor(String Fornecedor) {
-        this.Fornecedor = Fornecedor;
-    }
-
     
 }
