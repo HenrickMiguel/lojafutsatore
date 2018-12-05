@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tela;
+package tela;
 
-import DAO.ProdutosDAO;
-import Modelos.Produto;
+import dao.ProdutosDAO;
+import modelos.Produto;
 import javax.swing.JOptionPane;
 
 /**
@@ -120,7 +120,7 @@ public class Produtos extends javax.swing.JFrame {
         });
         getContentPane().add(btncadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 280, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 580, 400));
 
         pack();

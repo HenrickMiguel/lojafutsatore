@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tela;
+package tela;
 
-import DAO.FuncionariosDAO;
-import Modelos.Funcionario;
+import dao.FuncionariosDAO;
+import modelos.Funcionario;
 import javax.swing.JOptionPane;
 
 /**
@@ -149,7 +149,7 @@ public class Funcionarios extends javax.swing.JFrame {
         getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 360, 100, -1));
 
         jLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 14)); // NOI18N
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 430));
 
         pack();

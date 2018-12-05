@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Modelos;
+package modelos;
 
 /**
  *
@@ -14,8 +14,8 @@ public class Cliente {
     Long id;
     String nome;
     String cpf;
-    String Contato;
-    String Cidade;
+    String contato;
+    String cidade;
     String Endereco;
 
     public Long getId() {

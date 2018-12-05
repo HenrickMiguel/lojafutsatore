@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Tela;
+package tela;
 
 /**
  *
@@ -72,7 +72,7 @@ public class Sobre extends javax.swing.JFrame {
         lblTelefone.setText("Telefone : (83) 3286-2347");
         getContentPane().add(lblTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 570, 30));
 
-        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
+        lblFundo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/logo.jpg"))); // NOI18N
         getContentPane().add(lblFundo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-2, 0, 590, 420));
 
         pack();

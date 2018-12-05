@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package dao;
 
 import Factory.ConnectionFactory;
-import Modelos.Cliente;
+import modelos.Cliente;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -29,15 +29,17 @@ public class ClientesDAO {
         this.connection = new ConnectionFactory().getConnection();
     }
 
-    public void adiciona(Cliente clientes) {
-        String sql = "INSERT INTO Clientes (Nome,Cpf,Contato,Cidade,Endereco) VALUES(?,?,?,?,?)";
+    public void adiciona(Cliente cliente) {
+        String sql = "INSERT INTO tbl_cliente (nome,cpf,contato,cidade,bairro,rua,numero) VALUES(?,?,?,?,?,?,?)";
         try {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setString(1, clientes.getNome());
-                stmt.setString(2, clientes.getCpf());
-                stmt.setString(3, clientes.getContato());
-                stmt.setString(4, clientes.getCidade());
-                stmt.setString(5, clientes.getEndereco());
+                stmt.setString(1, cliente.getNome());
+                stmt.setString(2, cliente.getCpf());
+                stmt.setString(3, cliente.getContato());
+                stmt.setString(4, cliente.getCidade());
+                stmt.setString(5, cliente.getBairro());
+				stmt.setString(6, cliente.getRua());
+				stmt.setInt(7, cliente.getNumero());
                 stmt.execute();
             }
         } catch (SQLException u) {
