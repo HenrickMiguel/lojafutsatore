@@ -1,0 +1,57 @@
+CREATE TABLE tbl_cliente (
+	id INTENGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	nome VARCHAR(100) NOT NULL,
+  cpf VARCHAR(20) NOT NULL,
+  contato VARCHAR(60) NOT NULL,
+  cidade VARCHAR(60) NOT NULL,
+  bairro VARCHAR(100) NOT NULL,
+  rua VARCHAR(100) NOT NULL,
+  numero INTEGER(11) NOT NULL
+)ENGINE=INNODB;
+
+CREATE TABLE tbl_funcionario (
+	id INTENGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	nome VARCHAR(100) NOT NULL,
+  cpf VARCHAR(20) NOT NULL,
+  contato VARCHAR(60) NOT NULL,
+  cidade VARCHAR(60) NOT NULL,
+  bairro VARCHAR(100) NOT NULL,
+  rua VARCHAR(100) NOT NULL,
+  numero INTEGER(11) NOT NULL
+)ENGINE=INNODB;
+
+CREATE TABLE tbl_produto (
+	id INTENGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	nome VARCHAR(100) NOT NULL,
+  quantidade INTEGER(11) NOT NULL,
+  preco DECIMAL(9,2) NOT NULL
+)ENGINE=INNODB;
+
+CREATE TABLE tbl_venda (
+	id INTENGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	data_venda DATE NOT NULL,
+	quant_item INTEGER,
+	valor_total FLOAT,
+	cli_id INTEGER NOT NULL,
+	INDEX cli_id (cli_id),
+    FOREIGN KEY (cli_id)
+        REFERENCES tbl_cliente(id)
+        ON DELETE CASCADE
+)ENGINE=INNODB;
+
+CREATE TABLE tbl_items_venda (
+	id INTENGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+	prod_id NOT NULL,
+	quantidade INTEGER,
+	valor FLOAT,
+	prod_id NOT NULL,
+	ped_id NOT NULL,
+	INDEX prod_id (prod_id),
+    FOREIGN KEY (prod_id)
+        REFERENCES tbl_produto(id)
+        ON DELETE CASCADE,
+	INDEX vend_id (vend_id),
+    FOREIGN KEY (vend_id)
+        REFERENCES tbl_venda(id)
+        ON DELETE CASCADE
+)ENGINE=INNODB;
