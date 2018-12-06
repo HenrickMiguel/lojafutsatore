@@ -36,7 +36,7 @@ public class Sobre extends javax.swing.JFrame {
         lblTelefone = new javax.swing.JLabel();
         lblFundo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSair.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N

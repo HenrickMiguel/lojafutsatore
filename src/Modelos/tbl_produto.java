@@ -5,15 +5,26 @@
  */
 package Modelos;
 
+import java.math.BigDecimal;
+
 /**
  *
  * @author Henrick
  */
 public class tbl_produto {
     
-    String nome;
-    float preco;
-    int quantidade;
+    private Long id;
+    private String nome;
+    private BigDecimal preco;
+    private Integer quantidade;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -23,21 +34,23 @@ public class tbl_produto {
         this.nome = nome;
     }
 
-    public float getPreco() {
+    public BigDecimal getPreco() {
         return preco;
     }
 
-    public void setPreco(float preco) {
+    public void setPreco(BigDecimal preco) {
         this.preco = preco;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
+
+    
     
     
 }

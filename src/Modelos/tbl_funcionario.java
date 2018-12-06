@@ -11,13 +11,23 @@ package Modelos;
  */
 public class tbl_funcionario {
     
-    String nome;
-    String cpf;
-    String contato;
-    String cidade;
-    String Bairro;
-    String rua;
-    String numero;
+    private Long id;
+    private String nome;
+    private String cpf;
+    private String senha;
+    private String contato;
+    private String cidade;
+    private String Bairro;
+    private String rua;
+    private String numero;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public String getNome() {
         return nome;
@@ -74,7 +84,13 @@ public class tbl_funcionario {
     public void setNumero(String numero) {
         this.numero = numero;
     }
-    
-    
+
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
     
 }

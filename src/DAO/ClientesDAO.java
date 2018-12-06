@@ -7,9 +7,16 @@ package DAO;
 
 import Factory.ConnectionFactory;
 import Modelos.tbl_cliente;
+import Modelos.tbl_funcionario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -46,8 +53,70 @@ public class ClientesDAO {
             }
         } catch (SQLException u) {
             throw new RuntimeException(u);
+        }finally{
+            
+            try {
+                this.connection.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao fechar a conexao: " + ex.getMessage());
+            }
         }
 
+    }
+    
+    public List<tbl_cliente> consultar(){
+                
+        String sql = "SELECT * FROM tbl_cliente";
+        ResultSet rs = null;
+        List<tbl_cliente> clientes = new ArrayList<>();
+        tbl_cliente cliente = null;
+        PreparedStatement stmt = null;
+        
+         try {
+                stmt = connection.prepareStatement(sql);
+                rs = stmt.executeQuery();
+                
+                if(rs.first()){
+                    
+                    while(rs.next()){
+                        cliente = new tbl_cliente();
+                        cliente.setId(new Long(rs.getInt("id")));
+                        cliente.setNome(rs.getString("nome"));
+                        cliente.setCpf(rs.getString("cpf"));
+                        cliente.setContato(rs.getString("contato"));
+                        cliente.setCidade(rs.getString("cidade"));
+                        cliente.setBairro(rs.getString("bairro"));
+                        cliente.setRua(rs.getString("rua"));
+                        cliente.setNumero(String.valueOf(rs.getInt("numero")));
+
+                        clientes.add(cliente);
+                    }
+                    
+                }
+                
+                return clientes;
+        } catch (SQLException u) {
+            throw new RuntimeException(u);
+        }finally{
+            try {
+
+                if(stmt != null){
+                    stmt.close();
+                }
+
+                if(rs != null){
+                    rs.close();
+                }
+
+                if(connection != null){
+                    connection.close();
+                }
+
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao fechar a conexao: " + ex.getMessage());
+            }
+        }
+        
     }
     
     

@@ -5,18 +5,28 @@
  */
 package Modelos;
 
-import java.sql.Date;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
  *
  * @author Henrick
  */
 public class tbl_venda {
-    
-   Date  data_venda; 
-   int quanti_tem;
-   float valor_total;
-   int cli_id;
+   
+   private Long id; 
+   private Date data_venda; 
+   private Integer quanti_tem;
+   private BigDecimal valor_total;
+   private tbl_cliente cli_id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Date getData_venda() {
         return data_venda;
@@ -26,36 +36,29 @@ public class tbl_venda {
         this.data_venda = data_venda;
     }
 
-    public int getQuanti_tem() {
+    public Integer getQuanti_tem() {
         return quanti_tem;
     }
 
-    public void setQuanti_tem(int quanti_tem) {
+    public void setQuanti_tem(Integer quanti_tem) {
         this.quanti_tem = quanti_tem;
     }
 
-    public float getValor_total() {
+    public BigDecimal getValor_total() {
         return valor_total;
     }
 
-    public void setValor_total(float valor_total) {
+    public void setValor_total(BigDecimal valor_total) {
         this.valor_total = valor_total;
     }
 
-    public int getCli_id() {
+    public tbl_cliente getCli_id() {
         return cli_id;
     }
 
-    public void setCli_id(int cli_id) {
+    public void setCli_id(tbl_cliente cli_id) {
         this.cli_id = cli_id;
     }
-  
-    
-    
-   
-	
-	
-	
-    
+
     
 }

@@ -49,9 +49,11 @@ public class Funcionario extends javax.swing.JFrame {
         btnSair = new javax.swing.JButton();
         BtnAlterar = new javax.swing.JButton();
         btnCadastrar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jSenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -111,7 +113,7 @@ public class Funcionario extends javax.swing.JFrame {
                 btnSairActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 120, -1));
+        getContentPane().add(btnSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 120, -1));
 
         BtnAlterar.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         BtnAlterar.setText("Limpar");
@@ -120,7 +122,7 @@ public class Funcionario extends javax.swing.JFrame {
                 BtnAlterarActionPerformed(evt);
             }
         });
-        getContentPane().add(BtnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 120, -1));
+        getContentPane().add(BtnAlterar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 340, 120, -1));
 
         btnCadastrar.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btnCadastrar.setText("Cadastrar");
@@ -129,7 +131,14 @@ public class Funcionario extends javax.swing.JFrame {
                 btnCadastrarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 320, 120, -1));
+        getContentPane().add(btnCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 340, 120, -1));
+
+        jLabel1.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
+        jLabel1.setText("Senha:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 284, 70, 50));
+
+        jSenha.setText("jPasswordField1");
+        getContentPane().add(jSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, 480, 30));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/logo.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 590, 390));
@@ -148,6 +157,7 @@ public class Funcionario extends javax.swing.JFrame {
 
         txtNome.setText("");
         txtCpf.setText("");
+        jSenha.setText("");
         txtContato.setText("");
         txtNumero.setText("");
         txtRua.setText("");
@@ -160,13 +170,14 @@ public class Funcionario extends javax.swing.JFrame {
          tbl_funcionario tbl_funcionario = new tbl_funcionario ();
         tbl_funcionario.setNome(txtNome.getText());
         tbl_funcionario.setCpf(txtCpf.getText());
+        tbl_funcionario.setSenha(String.valueOf(jSenha.getPassword()));
         tbl_funcionario.setContato(txtContato.getText());
         tbl_funcionario.setCidade(txtCidade.getText());
         tbl_funcionario.setRua(txtRua.getText());
         tbl_funcionario.setBairro(txtBairro.getText());
         tbl_funcionario.setNumero(txtNumero.getText());
 
-        if ((txtNome.getText().isEmpty()) || (txtCpf.getText().isEmpty()) || (txtContato.getText().isEmpty()) || (txtNumero.getText().isEmpty()) || (txtRua.getText().isEmpty()) || (txtBairro.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
+        if ((txtNome.getText().isEmpty()) || (txtCpf.getText().isEmpty()) || (String.valueOf(jSenha.getPassword()).isEmpty()) || (txtContato.getText().isEmpty()) || (txtNumero.getText().isEmpty()) || (txtRua.getText().isEmpty()) || (txtBairro.getText().isEmpty()) || (txtCidade.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {
 
@@ -224,7 +235,9 @@ public class Funcionario extends javax.swing.JFrame {
     private javax.swing.JButton BtnAlterar;
     private javax.swing.JButton btnCadastrar;
     private javax.swing.JButton btnSair;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPasswordField jSenha;
     private javax.swing.JLabel lblBairro;
     private javax.swing.JLabel lblCidade2;
     private javax.swing.JLabel lblContato;

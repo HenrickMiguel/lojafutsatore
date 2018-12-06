@@ -8,9 +8,10 @@ package DAO;
 import Factory.ConnectionFactory;
 import Modelos.tbl_venda;
 import java.sql.Connection;
-import java.sql.Date;
+import java.util.Date;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -31,17 +32,36 @@ public class VendasDAO {
 
     public void adiciona(tbl_venda tbl_venda) {
         String sql = "INSERT INTO tbl_venda (Data_venda,Quanti_tem,Valor_total,Cli_id) VALUES(?,?,?,?)";
+        PreparedStatement stmt = null;
+        
         try {
-            try (PreparedStatement stmt = connection.prepareStatement(sql)) {
-                stmt.setDate(1, tbl_venda.getData_venda());
-                stmt.setInt(2, tbl_venda.getQuanti_tem());
-                stmt.setFloat(3, tbl_venda.getValor_total());
-                stmt.setInt(4, tbl_venda.getCli_id());
+            
+            stmt = connection.prepareStatement(sql);
+            stmt.setString(1, String.valueOf(tbl_venda.getData_venda()));
+            stmt.setInt(2, tbl_venda.getQuanti_tem());
+            stmt.setFloat(3, tbl_venda.getValor_total().floatValue());
+            stmt.setInt(4, tbl_venda.getCli_id().getId().intValue());
+
+            stmt.execute();
                 
-                stmt.execute();
-            }
+            
         } catch (SQLException u) {
             throw new RuntimeException(u);
+        }finally{
+            
+            try {
+                
+                if(stmt != null){
+                    stmt.close();
+                }
+                
+                if(connection != null){
+                    connection.close();
+                }
+                
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao fechar a conexao: " + ex.getMessage());
+            }
         }
 
     }

@@ -7,6 +7,7 @@ package Tela;
 
 import DAO.ProdutosDAO;
 import Modelos.tbl_produto;
+import java.math.BigDecimal;
 import javax.swing.JOptionPane;
 
 
@@ -44,7 +45,7 @@ public class Produtos extends javax.swing.JFrame {
         btncadastrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lblPreco.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
@@ -123,10 +124,8 @@ txtPreco.setText("");
         tbl_produto tbl_produto = new tbl_produto ();
         tbl_produto.setNome(txtNome.getText());
         tbl_produto.setQuantidade(Integer.parseInt(txtQuantidade.getText()));
-        tbl_produto.setPreco(Float.parseFloat(txtPreco.getText()));
+        tbl_produto.setPreco(BigDecimal.valueOf(Integer.parseInt(txtPreco.getText())));
         
-        
-
         if ((txtNome.getText().isEmpty()) || (txtPreco.getText().isEmpty()) || (txtQuantidade.getText().isEmpty())) {
             JOptionPane.showMessageDialog(null, "Os campos não podem retornar vazios");
         } else {

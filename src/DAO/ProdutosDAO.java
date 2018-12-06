@@ -7,9 +7,11 @@ package DAO;
 
 import Factory.ConnectionFactory;
 import Modelos.tbl_produto;
+import java.math.BigDecimal;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -32,14 +34,20 @@ public class ProdutosDAO {
         try {
             try (PreparedStatement stmt = connection.prepareStatement(sql)) {
                 stmt.setString(1, tbl_produto.getNome());
-                stmt.setInt(3, tbl_produto.getQuantidade());
-                stmt.setFloat(2, tbl_produto.getPreco());
-                
-                
+                stmt.setInt(2, tbl_produto.getQuantidade());
+                stmt.setBigDecimal(3, tbl_produto.getPreco());
+
                 stmt.execute();
             }
         } catch (SQLException u) {
             throw new RuntimeException(u);
+        }finally{
+            
+            try {
+                this.connection.close();
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(null, "Ocorreu um erro ao fechar a conexao: " + ex.getMessage());
+            }
         }
 
     }
